@@ -1,0 +1,9 @@
+{
+	"name": "vd-fac",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "42e4b47d-117d-4ceb-807b-65320a2b6bdd",
+		"tenantId": "f49c476e-8cd6-4f03-82da-6bb680158f81"
+	}
+}
