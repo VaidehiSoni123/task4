@@ -57,14 +57,9 @@
 			}
 		],
 		"parameters": {
-			"InputName": {
-				"type": "String",
-				"defaultValue": "YourDefaultUserName"
-			}
-		},
-		"variables": {
-			"name": {
-				"type": "String"
+			"userName": {
+				"type": "string",
+				"defaultValue": "vaidehi"
 			}
 		},
 		"annotations": []
