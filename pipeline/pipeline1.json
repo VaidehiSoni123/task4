@@ -57,9 +57,9 @@
 			}
 		],
 		"parameters": {
-			"userName": {
+			"name": {
 				"type": "string",
-				"defaultValue": "vaidehi"
+				"defaultValue": "\"YourDefaultUserName\""
 			}
 		},
 		"annotations": []
