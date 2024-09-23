@@ -3,21 +3,24 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "InputName",
+				"name": "ExecuteNotebook",
 				"type": "DatabricksNotebook",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.0:15:00",
 					"retry": 2,
 					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
+					"secureOutput": true,
 					"secureInput": true
 				},
 				"userProperties": [],
 				"typeProperties": {
 					"notebookPath": "/Users/vaidehi.soni@hoomnture.com/Pipeline_dbx_notebook",
 					"baseParameters": {
-						"InputName": "userName"
+						"userName": {
+							"value": "vaidehi",
+							"type": "Expression"
+						}
 					}
 				},
 				"linkedServiceName": {
@@ -29,11 +32,11 @@
 				}
 			},
 			{
-				"name": "querrySucces",
+				"name": "SetVariableSuccess",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
-						"activity": "InputName",
+						"activity": "ExecuteNotebook",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -48,40 +51,10 @@
 					"variableName": "pipelineReturnValue",
 					"value": [
 						{
-							"key": "Success",
+							"key": "name",
 							"value": {
 								"type": "String",
-								"content": "@json(activity('InputName').output).message"
-							}
-						}
-					],
-					"setSystemVariable": true
-				}
-			},
-			{
-				"name": "Set variable2",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "InputName",
-						"dependencyConditions": [
-							"Failed"
-						]
-					}
-				],
-				"policy": {
-					"secureOutput": true,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "pipelineReturnValue",
-					"value": [
-						{
-							"key": "errorMessage",
-							"value": {
-								"type": "String",
-								"content": "@json(activity('InputName').output).message"
+								"content": "@json(activity('ExecuteNotebook').output).message"
 							}
 						}
 					],
@@ -92,7 +65,12 @@
 		"parameters": {
 			"InputName": {
 				"type": "String",
-				"defaultValue": "https://adb-2154049051811562.2.azuredatabricks.net/?o=2154049051811562#notebook/2092921737235617/command/3904493741944649"
+				"defaultValue": "YourDefaultUserName"
+			}
+		},
+		"variables": {
+			"name": {
+				"type": "String"
 			}
 		},
 		"annotations": []
