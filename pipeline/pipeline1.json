@@ -15,13 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/vaidehi.soni@hoomnture.com/Pipeline_dbx_notebook",
-					"baseParameters": {
-						"userName": {
-							"value": "vaidehi",
-							"type": "Expression"
-						}
-					}
+					"notebookPath": "/Users/vaidehi.soni@hoomnture.com/Pipeline_dbx_notebook"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
